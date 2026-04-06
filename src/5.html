@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视觉健康处置四大模式 - 眼视光行业专用</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #e0f7fa 0%, #f5f9fc 100%);
+            padding: 20px;
+            line-height: 1.7;
+            font-family: 'Noto Sans SC', "Microsoft YaHei", Arial, sans-serif;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .title {
+            color: #1a237e;
+            margin-bottom: 15px;
+            font-size: 32px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .subtitle {
+            color: #5c6bc0;
+            margin-bottom: 30px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .mode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .mode-card {
+            background: linear-gradient(to right, #ffffff 0%, #f8fafc 100%);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .mode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .mode-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+        }
+        .mode-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2980b9;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+        }
+        .mode-title::before {
+            content: '●';
+            font-size: 24px;
+            color: currentColor;
+        }
+        .mode-core {
+            color: #e74c3c;
+            font-weight: 700;
+            margin: 12px 0;
+            font-size: 16px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .mode-core::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+        }
+        .mode-target {
+            color: #34495e;
+            margin: 12px 0;
+            font-size: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .mode-target::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #34495e;
+        }
+        .business-header {
+            font-weight: 700;
+            color: #1a237e;
+            margin: 15px 0 10px 0;
+            font-size: 16px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .business-header::before {
+            content: '📋';
+            position: absolute;
+            left: 0;
+        }
+        .mode-business {
+            margin: 0 0 15px 25px;
+            padding-left: 15px;
+        }
+        .mode-business li {
+            margin-bottom: 8px;
+            color: #2c3e50;
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+        .mode-business li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        .mode-slogan {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 12px 20px;
+            border-radius: 10px;
+            color: #1a237e;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 15px;
+            border: 1px solid #bbdefb;
+            font-style: italic;
+        }
+        .summary-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: center;
+            font-weight: 700;
+            color: #e65100;
+            box-shadow: 0 5px 20px rgba(230, 81, 0, 0.1);
+            border: 1px solid rgba(230, 81, 0, 0.2);
+        }
+        .summary-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #f57c00;
+        }
+        .summary-content {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        /* 四大模式不同颜色主题 */
+        .card-medical { 
+            background: linear-gradient(to right, #fffaf0 0%, #fff8f0 100%);
+        }
+        .card-medical .mode-title { 
+            color: #c0392b; 
+        }
+        .card-medical .mode-title::before { 
+            color: #c0392b; 
+        }
+        
+        .card-optical { 
+            background: linear-gradient(to right, #f0fff4 0%, #f0fff8 100%);
+        }
+        .card-optical .mode-title { 
+            color: #27ae60; 
+        }
+        .card-optical .mode-title::before { 
+            color: #27ae60; 
+        }
+        
+        .card-function { 
+            background: linear-gradient(to right, #fffde7 0%, #fffdf0 100%);
+        }
+        .card-function .mode-title { 
+            color: #e67e22; 
+        }
+        .card-function .mode-title::before { 
+            color: #e67e22; 
+        }
+        
+        .card-behavior { 
+            background: linear-gradient(to right, #faf2ff 0%, #fdf0ff 100%);
+        }
+        .card-behavior .mode-title { 
+            color: #8e44ad; 
+        }
+        .card-behavior .mode-title::before { 
+            color: #8e44ad; 
+        }
+        
+        /* 响应式设计优化 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            .mode-grid {
+                grid-template-columns: 1fr;
+            }
+            .title {
+                font-size: 24px;
+            }
+            .subtitle {
+                font-size: 16px;
+            }
+            .mode-card {
+                padding: 20px;
+            }
+            .mode-title {
+                font-size: 18px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .mode-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .mode-card:nth-child(1) { animation-delay: 0.1s; }
+        .mode-card:nth-child(2) { animation-delay: 0.2s; }
+        .mode-card:nth-child(3) { animation-delay: 0.3s; }
+        .mode-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">视觉健康处置四大模式详解</h1>
+            <p class="subtitle">最清晰、最落地、适合眼视光行业人直接使用</p>
+        </div>
+
+        <div class="mode-grid">
+            <!-- 医学模式 -->
+            <div class="mode-card card-medical">
+                <div class="mode-title">医学模式（治病、诊疗、医疗）</div>
+                <p class="mode-core">核心：解决眼病、病理问题，属于医疗范畴</p>
+                <p class="mode-target">面向：眼病患者、高风险人群、医院/眼科门诊</p>
+                <p class="business-header">具体业务范围：</p>
+                <ul class="mode-business">
+                    <li>眼病诊断与治疗：结膜炎、角膜炎、干眼症、睑缘炎、麦粒肿、霰粒肿</li>
+                    <li>眼底相关筛查：眼底照相、OCT、糖尿病视网膜病变筛查、青光眼排查</li>
+                    <li>屈光手术相关检查：术前检查、术后复查、干眼康复</li>
+                    <li>儿童眼病：斜视、弱视诊断与治疗、先天性眼病排查</li>
+                    <li>药物/医疗处置：热敷、雾化、睑缘清洁、除螨、泪道冲洗</li>
+                </ul>
+                <p class="mode-slogan">一句话定位：有病治病、有炎消炎、有险防控</p>
+            </div>
+
+            <!-- 光学模式 -->
+            <div class="mode-card card-optical">
+                <div class="mode-title">光学模式（配镜、屈光矫正、光学解决方案）</div>
+                <p class="mode-core">核心：用光学手段矫正视力，解决看不清</p>
+                <p class="mode-target">面向：所有近视、远视、散光、老视人群</p>
+                <p class="business-header">具体业务范围：</p>
+                <ul class="mode-business">
+                    <li>屈光检查：电脑验光、综合验光、主觉验光、散瞳验光</li>
+                    <li>光学矫正产品：框架眼镜、单光镜片、散光定制、变色/防蓝光</li>
+                    <li>青少年近视控制镜片：多点离焦、周边离焦、成长乐、新乐学、星趣控等</li>
+                    <li>特殊光学矫正：高度近视、高度散光、屈光参差、三棱镜配镜</li>
+                    <li>老花与渐进多焦点：中老年渐进片、抗疲劳镜片</li>
+                </ul>
+                <p class="mode-slogan">一句话定位：用镜片把视力矫正清楚</p>
+            </div>
+
+            <!-- 功能模式 -->
+            <div class="mode-card card-function">
+                <div class="mode-title">功能模式（视功能、双眼协调、视觉质量）</div>
+                <p class="mode-core">核心：解决看得累、看得不舒服、看不远、融像差</p>
+                <p class="mode-target">面向：视疲劳、阅读困难、儿童弱视、斜视术后、办公人群</p>
+                <p class="business-header">具体业务范围：</p>
+                <ul class="mode-business">
+                    <li>视功能检查：调节功能、集合散开功能、融合功能、立体视、NRA/PRA/BCC</li>
+                    <li>视功能训练：调节训练、聚散球、裂隙尺、翻转拍、双眼协同训练</li>
+                    <li>弱视治疗：遮盖、精细训练、多媒体弱视训练</li>
+                    <li>视疲劳康复：调节异常、集合不足/过度的干预方案</li>
+                    <li>功能性眼镜：读写镜、近用镜、棱镜眼镜</li>
+                </ul>
+                <p class="mode-slogan">一句话定位：让眼睛不仅看清，还要看得舒服、看得持久</p>
+            </div>
+
+            <!-- 行为模式 -->
+            <div class="mode-card card-behavior">
+                <div class="mode-title">行为模式（习惯、环境、预防、干预）</div>
+                <p class="mode-core">核心：从源头减少近视/眼病发生，属于预防与健康管理</p>
+                <p class="mode-target">面向：儿童青少年、家长、高度近视家庭、办公人群</p>
+                <p class="business-header">具体业务范围：</p>
+                <ul class="mode-business">
+                    <li>近视预防与建档：屈光发育档案、眼轴监测、角膜曲率追踪</li>
+                    <li>用眼行为干预：读写姿势纠正、用眼时长管理、近距离负荷控制</li>
+                    <li>环境干预：光照环境、屏幕使用、户外活动指导</li>
+                    <li>生活方式指导：睡眠、饮食、甜食控制、叶黄素/营养建议</li>
+                    <li>科普与宣教：家长课堂、校园筛查、近视防控方案制定</li>
+                </ul>
+                <p class="mode-slogan">一句话定位：管习惯、管环境、管增长，从根源护眼</p>
+            </div>
+        </div>
+
+        <!-- 总结 -->
+        <div class="summary-box">
+            <div class="summary-title">四大模式一句话总结（超好记）</div>
+            <div class="summary-content">
+                医学模式：治眼病<br>
+                光学模式：矫视力<br>
+                功能模式：提视觉质量<br>
+                行为模式：防近视、护习惯
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
